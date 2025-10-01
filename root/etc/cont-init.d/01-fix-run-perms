@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# s6-overlay 在某些环境中启动时 /run 目录的属主是 root,
+# 而 s6-overlay 需要它是 abc (uid 1000)。
+# 此脚本在 s6-overlay 初始化早期以 root 身份运行，以修复权限问题。
+#
+
+echo "Fixing /run permissions..."
+chown -R abc:abc /run

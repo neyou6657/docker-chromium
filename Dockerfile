@@ -32,6 +32,11 @@ RUN \
 # add local files
 COPY /root /
 
+# --- 新增和修改的部分 ---
+# 赋予我们添加的修复脚本可执行权限
+RUN chmod +x /etc/cont-init.d/01-fix-run-perms
+# --- 修改结束 ---
+
 # ports and volumes
 EXPOSE 3000
 
